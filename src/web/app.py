@@ -1,19 +1,29 @@
-from flask import Flask
+from flask import Flask, render_template
 from datetime import datetime
 
 # Setup Flask
 app = Flask(__name__)
 
-# Home Route
+# 
+# UI endpoints
+#
 @app.route("/")
-def hello_world() -> str:
-    return "<p>Hello, World!</p>"
+def index():
+    return render_template("index.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/info")
+def info():
+    return render_template("info.html")
 
 # Test end point
 @app.route("/api/test")
-def test() -> dict:
+def test():
     return { 
-        "status": "running",
+        "status": 200,
         "time": datetime.now()
     }
 
