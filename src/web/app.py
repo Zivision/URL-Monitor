@@ -1,5 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from datetime import datetime
+import requests
+
 
 # Setup Flask
 app = Flask(__name__)
@@ -20,12 +22,23 @@ def info():
     return render_template("info.html")
 
 # Test end point
-@app.route("/api/test")
+@app.route("/api/v1/test")
 def test():
     return { 
         "status": 200,
         "time": datetime.now()
     }
+
+@app.route("/api/v1/url/", methods=["POST"])
+def get_status_code():
+    data = request.json
+    return jsonify(
+        {
+            "url": data["url"],
+            "status_code": requests.get(data["url"]).status_code,
+            "time": datetime.now()
+        }
+    )
 
 # Wrapper function with params
 def run_app(host="127.0.0.1", port=8080, debug=True) -> None:
