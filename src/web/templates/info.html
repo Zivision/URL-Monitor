@@ -4,13 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info</title>
+    <!-- Simple css -->
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
 </head>
 <body>
-    <h1>Info Page</h1>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/info">Info</a></li>
-    </ul>
+    <header>
+    <h1>About Page</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/info">Info</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Main Endpoints</h2>
+        <p>
+            All the endpoints can be found under the <strong>/api/v1/</strong> url.
+        </p>
+
+        <h3>Testing Endpoints</h3>
+        <p>
+            As the name suggests this is for testing and pinging the api if it is online.
+            The only endpoint is <strong>/api/v1/test</strong>.
+            it is a simple GET endpoint that is used for testing if the server is currently running.
+        </p>
+        <h3>URL Endpoints</h3>
+        <p>
+            There is only one implemented endpoint here currently. 
+            It is a POST endpoint found at <strong>/api/v1/url</strong>.
+            To use it, use a json object with content like the example below.
+        </p>
+        <pre>
+            <code>
+                { "url": "https://www.somesite.com" }
+            </code>
+        </pre>
+        <p>
+            Once inputed, it will return an object status code and time of request.
+        </p>
+    </main>
+    <footer>
+        <p>
+            This site uses a css framework called simple css. 
+            You should check them out at their <a href="https://simplecss.org">site</a>.
+        </p>
+    </footer>
 </body>
 </html>
