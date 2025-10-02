@@ -21,7 +21,9 @@ def about():
 def info():
     return render_template("info.html")
 
-# Test end point
+# 
+# API endpoints
+#
 @app.route("/api/v1/test")
 def test():
     return { 
@@ -40,7 +42,7 @@ def get_status_code():
         }
     )
 
-# Wrapper function with params
+# Wrapper function with params for development
 def run_app(host="127.0.0.1", port=8080, debug=True) -> None:
     app.run(host=host, port=port, debug=debug)
 
