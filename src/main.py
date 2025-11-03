@@ -1,9 +1,7 @@
-# For development as of now. not for production
 from web.app import run_app
+import os
 
-def main():
-    run_app()
-
-
-if __name__ == "__main__":
-    main()
+# Start the server
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    run_app(host='0.0.0.0', port=port)
